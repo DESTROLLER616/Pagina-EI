@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #FFFCFC;
+    background-color: #FFFCFC;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%230012B0' stroke-width='1.5'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%2321D9BA'%3E%3Ccircle cx='769' cy='229' r='25'/%3E%3Ccircle cx='539' cy='269' r='25'/%3E%3Ccircle cx='603' cy='493' r='25'/%3E%3Ccircle cx='731' cy='737' r='25'/%3E%3Ccircle cx='520' cy='660' r='25'/%3E%3Ccircle cx='309' cy='538' r='25'/%3E%3Ccircle cx='295' cy='764' r='25'/%3E%3Ccircle cx='40' cy='599' r='25'/%3E%3Ccircle cx='102' cy='382' r='25'/%3E%3Ccircle cx='127' cy='80' r='25'/%3E%3Ccircle cx='370' cy='105' r='25'/%3E%3Ccircle cx='578' cy='42' r='25'/%3E%3Ccircle cx='237' cy='261' r='25'/%3E%3Ccircle cx='390' cy='382' r='25'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* barra de desplazamiento vertical personalizada */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5BA5EA;
+}
+
+/* codigo de desplazamiento vertical */
+
+.container{
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    margin-top: 5px;
+    background-color: #234;
+}
+
+.lbl-menu{
+    background: #234;
+    justify-content: space-between;
+}
+
+.lbl-menu label{
+    display: inline-block;
+    padding: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+
+.lbl-menu label:hover{
+    background: #28435d;
+}
+
+.content{
+    position: relative;
+}
+
+.content div{
+    position: absolute;
+    line-height: 1.8;
+    transition: all 600ms ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.90);
+    padding: 30px;
+    background: #fff;
+    padding-bottom: 40px;
+}
+
+#radio1,#radio2,#radio3,#radio4, #radio5{
+    display: none;
+}
+
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3,
+#radio4:checked ~ .tab4,
+#radio5:checked ~ .tab5
+{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.content div:after{
+    position: absolute;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    bottom: 100%;
+    left: 60px;
+}
+
+.content .tab2:after{
+    left: 250px;
+}
+
+.content .tab3:after{
+    left: 390px;
+}
+
+.content .tab4:after{
+    left: 580Px;
+}
+
+.content .tab5:after{
+    left: 720px;
+}
+
+/* contenedor con grid para hacer un layout con contenedores de distintos tamaños */
+
+.grid {
+    outline: 4px solid #fff;
+    width: 70%;
+    height: 500px;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-template-areas: 
+    "n1 n1 n2"
+    "n3 n3 n2"
+    "n3 n3 n2"
+    "n4 n4 n4";
+    gap: 10px;
+}
+
+.item {
+    color: #ffffff;
+    text-align: center;
+}
+
+.item1 {
+    background-color: #5BA5EA;
+    padding-top: 10px;
+    grid-area: n1;
+}
+
+.item2 {
+    background-color: cadetblue;
+    padding-top: 120px;
+    grid-area: n2;
+}
+
+.item3 {
+    background-color: #234;
+    padding-top: 55px;
+    grid-area: n3;
+}
+
+.item4 {
+    background-color: #28435d;
+    padding-top: 15px;
+    grid-area: n4;
+}
+
+.box {
+    padding-bottom: 10px;
+    padding-right: 830px;
+}
